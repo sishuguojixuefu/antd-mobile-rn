@@ -34,7 +34,7 @@ subtitle: 轻提示
 > 3.0.0 开始移除了 之前的`Toast.hide`方法，`Toast.xxx` 现在返回一个`key`可以使用`Portal.remove(key)`手动关闭提示
 
 ```js
-  import { Portal, Toast } from '@sishu/antd-mobile-rn'
+  import { Portal, Toast } from '@sishuguojixuefu/antd-mobile-rn'
   const key Toast.loading('messsage')
   Portal.remove(key)
 ```

@@ -6,7 +6,7 @@
 
 # Ant Design Mobile RN
 
-Ant Design 移动端设计规范。`@sishu/antd-mobile-rn` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
+Ant Design 移动端设计规范。`@sishuguojixuefu/antd-mobile-rn` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
 
 ## 通知
 
@@ -28,13 +28,13 @@ Ant Design 移动端设计规范。`@sishu/antd-mobile-rn` 是 Ant Design 的移
 ## 安装 & 使用
 
 ```bash
-npm install @sishu/antd-mobile-rn --save
+npm install @sishuguojixuefu/antd-mobile-rn --save
 ```
 
 or
 
 ```bash
-yarn add @sishu/antd-mobile-rn
+yarn add @sishuguojixuefu/antd-mobile-rn
 ```
 
 ### 链接字体图标
@@ -53,7 +53,7 @@ $ yarn add babel-plugin-import -D
 
 ```js
 plugins: [
-  ['import', { libraryName: '@sishu/antd-mobile-rn' }],
+  ['import', { libraryName: '@sishuguojixuefu/antd-mobile-rn' }],
 ],
 ```
 
@@ -63,7 +63,7 @@ plugins: [
 
 ```js
 import React, { Component } from 'react';
-import { Button, Provider, Toast } from '@sishu/antd-mobile-rn';
+import { Button, Provider, Toast } from '@sishuguojixuefu/antd-mobile-rn';
 
 export default class HelloWorldApp extends Component {
   render() {

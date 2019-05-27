@@ -1,4 +1,4 @@
-declare module '@sishu/antd-mobile-rn';
+declare module '@sishuguojixuefu/antd-mobile-rn';
 
 declare module 'antd-mobile-demo-data';
 

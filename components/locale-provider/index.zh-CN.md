@@ -13,7 +13,7 @@ Provider 使用 React 的 [context](https://facebook.github.io/react/docs/contex
 
 
 ```jsx
-import enUS from '@sishu/antd-mobile-rn/lib/locale-provider/en_US';
+import enUS from '@sishuguojixuefu/antd-mobile-rn/lib/locale-provider/en_US';
 
 ...
 
@@ -34,5 +34,5 @@ return <Provider locale={enUS}><App /></Provider>;
 
 | 参数   | 说明                                                                                                                                                                     | 类型   | 默认值 |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ------ |
-| locale | 语言包配置，语言包可到 `@sishu/antd-mobile-rn/lib/locale-provider/` 目录下寻找                                                                                        | object | -      |
+| locale | 语言包配置，语言包可到 `@sishuguojixuefu/antd-mobile-rn/lib/locale-provider/` 目录下寻找                                                                                        | object | -      |
 | theme  | 主题样式配置，可根据需要覆盖部分或者全部变量，具体变量请查看 [theme](https://github.com/ant-design/ant-design-mobile-rn/blob/master/components/style/themes/default.tsx) | object | -      |

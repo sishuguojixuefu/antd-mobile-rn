@@ -12,7 +12,7 @@ export default class PortalConsumer extends React.Component<PortalConsumerProps>
   componentDidMount() {
     if (!this.props.manager) {
       throw new Error(
-        'Looks like you forgot to wrap your root component with `Provider` component from `@sishu/antd-mobile-rn`.\n\n',
+        'Looks like you forgot to wrap your root component with `Provider` component from `@sishuguojixuefu/antd-mobile-rn`.\n\n',
       );
     }
 

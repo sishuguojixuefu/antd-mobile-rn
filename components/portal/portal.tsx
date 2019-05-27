@@ -17,7 +17,7 @@ export type PortalProps = {
  * ## Usage
  * ```js
  * import * as React from 'react';
- * import { Portal, Text } from '@sishu/antd-mobile-rn';
+ * import { Portal, Text } from '@sishuguojixuefu/antd-mobile-rn';
  *
  * export default class MyComponent extends React.Component {
  *   render() {
