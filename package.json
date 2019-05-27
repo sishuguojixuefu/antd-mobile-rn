@@ -16,8 +16,8 @@
     "react native"
   ],
   "repository": {
-    "type": "gitlab",
-    "url": "http://192.168.2.112/sishu_npm/antd-mobile-rn"
+    "type": "github",
+    "url": "https://github.com/sishuguojixuefu/antd-mobile-rn"
   },
   "files": [
     "lib"
