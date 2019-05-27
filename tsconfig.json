@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "types": ["react", "react-native"],
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "lib"
+  },
+  "exclude": ["node_modules", "lib", "es"],
+  "compileOnSave": false
+}

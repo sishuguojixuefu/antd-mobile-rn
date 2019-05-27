@@ -1,0 +1,9 @@
+- [InputItem](./components/input-item/index.tsx)
+  - 增加 `itemStyle?: ViewStyle` 属性
+  - textAlign 增加 'right' 选项
+  - 把 InputItem clear icon 设置为 x3s
+  - InputItem clear 增加 textAlign 值不等于 right 才显示的条件
+- [List.Item](./components/list/ListItem.tsx)
+  - 增加 `last?: boolean` 属性
+- [Icon](./components/icon/index.tsx)
+  - icon size 添加 x3s 选项
