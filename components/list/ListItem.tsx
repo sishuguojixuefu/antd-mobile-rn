@@ -13,6 +13,7 @@ export interface ListItemProps
   onPressOut?: () => void;
   style?: StyleProp<ViewStyle>;
   last?: boolean;
+  LineStyle?: any;
 }
 
 export interface BriefProps
@@ -67,6 +68,7 @@ export default class Item extends React.Component<ListItemProps, any> {
       disabled,
       align,
       last,
+      LineStyle,
       ...restProps
     } = this.props;
 
@@ -202,7 +204,8 @@ export default class Item extends React.Component<ListItemProps, any> {
                   itemStyles.Line,
                   multipleLine && itemStyles.multipleLine,
                   multipleLine && alignStyle,
-                  {borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth}
+                  {borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth},
+                  ...LineStyle,
                 ]}
               >
                 {contentDom}
