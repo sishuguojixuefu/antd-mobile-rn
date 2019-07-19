@@ -10,3 +10,5 @@
   - 增加 LineStyle 属性
 - [Icon](./components/icon/index.tsx)
   - icon size 添加 x3s 选项
+- [SearchBar](./components/search-bar/index.tsx)
+  - 增加 `wrapperStyle?: StyleProp<TextStyle>;` 属性

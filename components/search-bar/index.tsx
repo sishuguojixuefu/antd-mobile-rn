@@ -14,6 +14,7 @@ export interface SearchBarProps
   onChangeText?: (text: string) => void;
   onSubmitEditing?: (event: { nativeEvent: { text: string } }) => void;
   style?: StyleProp<TextStyle>;
+  wrapperStyle?: StyleProp<TextStyle>;
 }
 
 export default class SearchBar extends React.Component<
@@ -102,6 +103,7 @@ export default class SearchBar extends React.Component<
       onChange,
       disabled,
       style,
+      wrapperStyle,
       ...restProps
     } = this.props;
 
@@ -119,7 +121,7 @@ export default class SearchBar extends React.Component<
     return (
       <WithTheme styles={styles} themeStyles={SearchBarStyles}>
         {_styles => (
-          <View style={_styles.wrapper}>
+          <View style={[_styles.wrapper,wrapperStyle]}>
             <View style={_styles.inputWrapper}>
               <TextInput
                 clearButtonMode="always"
