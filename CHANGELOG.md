@@ -8,6 +8,7 @@
 - [List.Item](./components/list/ListItem.tsx)
   - 增加 `last?: boolean` 属性
   - 增加 LineStyle 属性
+  - 增加 extraStyle 属性
 - [Icon](./components/icon/index.tsx)
   - icon size 添加 x3s 选项
 - [SearchBar](./components/search-bar/index.tsx)
