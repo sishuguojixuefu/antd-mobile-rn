@@ -38,7 +38,7 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
     }
     const animArr = [
       timing(this.state.fadeAnim, {
-        toValue: 0.5,
+        toValue: 1,
         duration: 200,
         useNativeDriver: true,
       }),
