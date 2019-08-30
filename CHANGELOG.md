@@ -10,6 +10,7 @@
   - 增加 `last?: boolean` 属性
   - 增加 LineStyle 属性
   - 增加 extraStyle 属性
+  - Extra 默认字体大小调为 16
 - [Icon](./components/icon/index.tsx)
   - icon size 添加 x3s 选项
 - [SearchBar](./components/search-bar/index.tsx)
