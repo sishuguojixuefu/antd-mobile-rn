@@ -14,3 +14,5 @@
   - textAlign 增加 'right' 选项
   - InputItem clear 增加 textAlign 值不等于 left 才显示的条件
   - InputItem ios 下的默认高度设置为 44
+- [SearchBar](./components/search-bar/index.tsx)
+  - 增加 `wrapperStyle?: StyleProp<TextStyle>;` 属性
