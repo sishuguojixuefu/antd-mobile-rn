@@ -14,6 +14,8 @@ export interface ListItemProps
   delayLongPress?: number;
   onLongPress?: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
+  last?: boolean;
+  LineStyle?: any;
 }
 
 export interface BriefProps
@@ -51,6 +53,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     wrap: false,
     delayLongPress: 500,
     onLongPress: () => {},
+    last: false,
   };
   static Brief = Brief;
   render() {
@@ -70,6 +73,8 @@ export default class Item extends React.Component<ListItemProps, any> {
       wrap,
       disabled,
       align,
+      last,
+      LineStyle,
       ...restProps
     } = this.props;
 
@@ -205,6 +210,8 @@ export default class Item extends React.Component<ListItemProps, any> {
                   itemStyles.Line,
                   multipleLine && itemStyles.multipleLine,
                   multipleLine && alignStyle,
+                  {borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth},
+                  ...LineStyle,
                 ]}
               >
                 {contentDom}

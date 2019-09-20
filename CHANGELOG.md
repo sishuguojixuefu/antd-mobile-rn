@@ -1,4 +1,6 @@
 - [List](./components/list/index.tsx)
   - 增加了 noBorder 属性
 - [List.Item](./components/list/ListItem.tsx)
+  - 增加 `last?: boolean` 属性
+  - 增加 LineStyle 属性
   - 148 行，修复 extra 为 0 时不显示的问题
