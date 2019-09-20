@@ -8,3 +8,5 @@
   - 148 行，修复 extra 为 0 时不显示的问题
 - [Icon](./components/icon/index.tsx)
   - icon size 添加 x3s 选项
+- [InputItem](./components/input-item/index.tsx)
+  - 把 InputItem clear icon 设置为 x3s
