@@ -142,7 +142,7 @@ export default class InputItem extends React.Component<
       ...restProps
     } = this.props;
     const { focus } = this.state;
-    const { value, defaultValue, style, itemStyle } = restProps;
+    const { value, defaultValue, style, itemStyle, textAlign } = restProps;
     let valueProps: any;
     if ('value' in this.props) {
       valueProps = {
@@ -210,7 +210,7 @@ export default class InputItem extends React.Component<
               ) : null}
               <Input
                 editable={!disabled && editable}
-                clearButtonMode={clear ? 'while-editing' : 'never'}
+                clearButtonMode={(clear && textAlign !== 'left') ? 'while-editing' : 'never'}
                 underlineColorAndroid="transparent"
                 ref={el => (this.inputRef = el)}
                 {...restProps}
@@ -232,7 +232,7 @@ export default class InputItem extends React.Component<
                 onFocus={this.onInputFocus}
               />
               {/* 只在有 value 的受控模式下且在编辑状态时展示自定义的安卓 clear 按钮 */}
-              {editable && clear && value && focus && android ? (
+              {editable && clear && value && focus && android && textAlign !== 'left' ? (
                 <TouchableOpacity
                   style={[s.clear]}
                   onPress={this.onInputClear}
