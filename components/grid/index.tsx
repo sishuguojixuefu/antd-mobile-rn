@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Dimensions, Image, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { Dimensions, Image, StyleProp, StyleSheet, Text, View, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import Carousel, { CarouselProps } from '../carousel/index';
 import Flex from '../flex/index';
 import { WithTheme, WithThemeStyles } from '../style';
@@ -9,6 +9,8 @@ import GridStyles, { GridStyle } from './style/index';
 
 export interface GridProps extends GridPropsType, WithThemeStyles<GridStyle> {
   itemStyle?: StyleProp<ViewStyle>;
+  iconStyle?: StyleProp<ImageStyle>;
+  textStyle?: StyleProp<TextStyle>;
   carouselProps?: CarouselProps;
 }
 
@@ -20,6 +22,7 @@ export default class Grid extends React.Component<GridProps, any> {
     columnNum: 4,
     carouselMaxRow: 2,
     itemStyle: {},
+    iconStyle: {},
     carouselProps: {},
   };
 
@@ -36,6 +39,8 @@ export default class Grid extends React.Component<GridProps, any> {
       hasLine,
       isCarousel,
       onPress = () => {},
+      iconStyle,
+      textStyle,
       carouselProps,
     } = this.props;
     const columnNum = this.props.columnNum;
@@ -59,9 +64,9 @@ export default class Grid extends React.Component<GridProps, any> {
                 {React.isValidElement(dataItem.icon) ? (
                   dataItem.icon
                 ) : (
-                  <Image source={{ uri: dataItem.icon }} style={styles.icon} />
+                  <Image source={{ uri: dataItem.icon }} style={[styles.icon, iconStyle]} />
                 )}
-                <Text style={styles.text}>{dataItem.text}</Text>
+                <Text style={[styles.text, textStyle]}>{dataItem.text}</Text>
               </Flex>
             ));
 

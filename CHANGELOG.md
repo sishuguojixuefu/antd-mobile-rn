@@ -16,3 +16,6 @@
   - InputItem ios 下的默认高度设置为 44
 - [SearchBar](./components/search-bar/index.tsx)
   - 增加 `wrapperStyle?: StyleProp<TextStyle>;` 属性
+- [Grid](./components/grid/index.tsx)
+  - 添加 iconStyle 用于自定义图标尺寸
+  - 添加 textStyle 用于自定义文字尺寸

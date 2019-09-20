@@ -1,5 +1,3 @@
-[English](./README.md) | 简体中文
-
 <p align="center">
   <a href="http://rn.mobile.ant.design">
     <img width="320" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png">
