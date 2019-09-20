@@ -11,3 +11,4 @@
 - [InputItem](./components/input-item/index.tsx)
   - 把 InputItem clear icon 设置为 x3s
   - 增加 `itemStyle?: ViewStyle` 属性
+  - textAlign 增加 'right' 选项
