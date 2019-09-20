@@ -83,7 +83,7 @@ export default (variables: Theme) =>
     },
     Extra: {
       color: variables.color_text_caption,
-      fontSize: variables.font_size_caption,
+      fontSize: variables.font_size_heading,
       textAlign: 'right',
       textAlignVertical: 'center',
     },

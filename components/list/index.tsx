@@ -19,7 +19,6 @@ export default class List extends React.Component<ListProps, any> {
       renderHeader,
       renderFooter,
       styles,
-      noBorder,
       ...restProps
     } = this.props;
 
@@ -53,9 +52,9 @@ export default class List extends React.Component<ListProps, any> {
           return (
             <View {...restProps as any} style={style}>
               {headerDom}
-              <View style={[s.Body, noBorder && {borderTopWidth:0}]}>
+              <View style={s.Body}>
                 {children ? children : null}
-                <View style={[s.BodyBottomLine as ViewStyle,noBorder && {borderBottomWidth:0}]} />
+                <View style={[s.BodyBottomLine as ViewStyle]} />
               </View>
               {footerDom}
             </View>

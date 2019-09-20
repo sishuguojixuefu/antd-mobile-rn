@@ -25,7 +25,7 @@ export interface InputItemPropsType {
   // size?: 'large' | 'small';
   labelNumber?: number;
   labelPosition?: 'left' | 'top';
-  textAlign?: 'left' | 'center' | 'right';
+  textAlign?: 'left' | 'center';
   updatePlaceholder?: boolean;
   locale?: object;
   onChange?: (value: string) => void;

@@ -1,6 +1,6 @@
 {
   "name": "@sishuguojixuefu/antd-mobile-rn",
-  "version": "3.1.8-beta.10",
+  "version": "3.1.15",
   "description": "基于蚂蚁金服移动设计规范的 React Native 组件库",
   "keywords": [
     "ant",
@@ -16,7 +16,7 @@
     "react native"
   ],
   "repository": {
-    "type": "github",
+    "type": "git",
     "url": "https://github.com/sishuguojixuefu/antd-mobile-rn"
   },
   "files": [
@@ -39,23 +39,27 @@
     "utility-types": "^2.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.0",
     "@types/prop-types": "^15.5.7",
     "@types/react": "~16.7.13",
     "@types/react-native": "^0.57.15",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^7.2.3",
-    "eslint": "~4.3.0",
+    "babel-plugin-import": "^1.6.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react-native": "^4.0.1",
+    "eslint": "~4.18.2",
     "eslint-config-airbnb": "~15.1.0",
     "eslint-plugin-babel": "~4.1.1",
     "eslint-plugin-import": "~2.7.0",
     "eslint-plugin-jsx-a11y": "~6.0.2",
     "eslint-plugin-react": "~7.2.0",
-    "rc-form": "2.2.7",
     "typescript": "^3.2.2"
   },
-  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "postversion": "git push --tags  && git push && npm publish",
     "prepublishOnly": "tsc -p ./tsconfig.json"
-  }
+  },
+  "typings": "lib/index.d.ts"
 }

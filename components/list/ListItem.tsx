@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleProp, StyleSheet, Text, TouchableHighlight, View, ViewStyle } from 'react-native';
+import { GestureResponderEvent, Image, StyleProp, StyleSheet, Text, TouchableHighlight, View, ViewStyle } from 'react-native';
 import Icon from '../icon';
 import { WithTheme, WithThemeStyles } from '../style';
 import { BriefProps as BriefBasePropsType, ListItemPropsType } from './PropsType';
@@ -8,13 +8,12 @@ import ListStyles, { ListStyle } from './style/index';
 export interface ListItemProps
   extends ListItemPropsType,
     WithThemeStyles<ListStyle> {
-  onPress?: () => void;
-  onPressIn?: () => void;
-  onPressOut?: () => void;
+  onPress?: (event: GestureResponderEvent) => void;
+  onPressIn?: (event: GestureResponderEvent) => void;
+  onPressOut?: (event: GestureResponderEvent) => void;
+  delayLongPress?: number;
+  onLongPress?: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
-  last?: boolean;
-  LineStyle?: any;
-  extraStyle?: any;
 }
 
 export interface BriefProps
@@ -50,7 +49,8 @@ export default class Item extends React.Component<ListItemProps, any> {
   static defaultProps: Partial<ListItemProps> = {
     multipleLine: false,
     wrap: false,
-    last: false,
+    delayLongPress: 500,
+    onLongPress: () => {},
   };
   static Brief = Brief;
   render() {
@@ -65,12 +65,11 @@ export default class Item extends React.Component<ListItemProps, any> {
       onPress,
       onPressIn,
       onPressOut,
+      onLongPress,
+      delayLongPress,
       wrap,
       disabled,
       align,
-      last,
-      LineStyle,
-      extraStyle,
       ...restProps
     } = this.props;
 
@@ -146,10 +145,10 @@ export default class Item extends React.Component<ListItemProps, any> {
           }
 
           let extraDom;
-          if (extra) {
+          if (extra || extra === 0) {
             extraDom = (
               <View style={[itemStyles.column]}>
-                <Text style={[itemStyles.Extra, extraStyle]} {...numberOfLines}>
+                <Text style={[itemStyles.Extra]} {...numberOfLines}>
                   {extra}
                 </Text>
               </View>
@@ -163,7 +162,7 @@ export default class Item extends React.Component<ListItemProps, any> {
                     tempExtraDom.push(
                       <Text
                         {...numberOfLines}
-                        style={[itemStyles.Extra, extraStyle]}
+                        style={[itemStyles.Extra]}
                         key={`${index}-children`}
                       >
                         {el}
@@ -206,8 +205,6 @@ export default class Item extends React.Component<ListItemProps, any> {
                   itemStyles.Line,
                   multipleLine && itemStyles.multipleLine,
                   multipleLine && alignStyle,
-                  {borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth},
-                  ...LineStyle,
                 ]}
               >
                 {contentDom}
@@ -230,6 +227,8 @@ export default class Item extends React.Component<ListItemProps, any> {
               }
               onPressIn={onPressIn}
               onPressOut={onPressOut}
+              onLongPress={onLongPress}
+              delayLongPress={delayLongPress}
             >
               {itemView}
             </TouchableHighlight>

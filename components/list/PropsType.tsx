@@ -5,7 +5,6 @@ export interface ListPropsType {
   renderHeader?: (() => React.ReactType) | string | JSX.Element;
   renderFooter?: (() => React.ReactType) | string | JSX.Element;
   children?: false | JSX.Element | JSX.Element[];
-  noBorder?: boolean;
 }
 
 export interface ListItemPropsType {

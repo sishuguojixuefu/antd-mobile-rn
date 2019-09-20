@@ -1,5 +1,5 @@
 import React from 'react';
-import { GestureResponderEvent, Platform, StyleSheet, Text, TextInputProperties, TouchableOpacity, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
+import { GestureResponderEvent, Platform, StyleSheet, Text, TextInputProperties, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { Omit } from 'utility-types';
 import Icon from '../icon';
 import { WithTheme, WithThemeStyles } from '../style';
@@ -22,7 +22,6 @@ export interface InputItemProps
   onExtraClick?: (event: GestureResponderEvent) => void;
   onErrorClick?: (event: GestureResponderEvent) => void;
   disabled?: boolean;
-  itemStyle?: ViewStyle;
 }
 
 interface InputItemState {
@@ -142,7 +141,7 @@ export default class InputItem extends React.Component<
       ...restProps
     } = this.props;
     const { focus } = this.state;
-    const { value, defaultValue, style, itemStyle, textAlign } = restProps;
+    const { value, defaultValue, style } = restProps;
     let valueProps: any;
     if ('value' in this.props) {
       valueProps = {
@@ -158,7 +157,7 @@ export default class InputItem extends React.Component<
       <WithTheme styles={styles} themeStyles={InputItemStyles}>
         {(s, theme) => {
           const containerStyle = {
-            borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth
+            borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth,
           };
 
           const textStyle = {
@@ -200,7 +199,7 @@ export default class InputItem extends React.Component<
           }
           const disabledStyle = disabled ? s.inputDisabled : {};
           return (
-            <View style={[s.container, itemStyle, containerStyle]}>
+            <View style={[s.container, containerStyle]}>
               {children ? (
                 typeof children === 'string' ? (
                   <Text style={[s.text, textStyle]}>{children}</Text>
@@ -210,14 +209,14 @@ export default class InputItem extends React.Component<
               ) : null}
               <Input
                 editable={!disabled && editable}
-                clearButtonMode={(clear && textAlign !== 'right') ? 'while-editing' : 'never'}
+                clearButtonMode={clear ? 'while-editing' : 'never'}
                 underlineColorAndroid="transparent"
                 ref={el => (this.inputRef = el)}
                 {...restProps}
                 {...valueProps}
                 style={[
                   {
-                    height: theme.list_item_height,
+                    height: !android ? theme.list_item_height_sm : theme.list_item_height,
                   },
                   s.input,
                   error ? s.inputErrorColor : null,
@@ -232,13 +231,13 @@ export default class InputItem extends React.Component<
                 onFocus={this.onInputFocus}
               />
               {/* 只在有 value 的受控模式下且在编辑状态时展示自定义的安卓 clear 按钮 */}
-              {editable && clear && value && focus && android && textAlign !== 'right' ? (
+              {editable && clear && value && focus && android ? (
                 <TouchableOpacity
                   style={[s.clear]}
                   onPress={this.onInputClear}
                   hitSlop={{ top: 5, left: 5, bottom: 5, right: 5 }}
                 >
-                  <Icon name="close" color={'white'} size="x3s"/>
+                  <Icon name="close" color={'white'} />
                 </TouchableOpacity>
               ) : null}
               {extra ? (

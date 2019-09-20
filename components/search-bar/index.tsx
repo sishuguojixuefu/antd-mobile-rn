@@ -1,7 +1,6 @@
-
 import PropTypes from 'prop-types';
 import React from 'react';
-import { StyleProp, Text, TextInput, TextStyle, View } from 'react-native';
+import { NativeSyntheticEvent, StyleProp, Text, TextInput, TextInputFocusEventData, TextStyle, View } from 'react-native';
 import Icon from '../icon';
 import { WithTheme, WithThemeStyles } from '../style';
 import { getComponentLocale } from '../_util/getLocale';
@@ -14,7 +13,6 @@ export interface SearchBarProps
   onChangeText?: (text: string) => void;
   onSubmitEditing?: (event: { nativeEvent: { text: string } }) => void;
   style?: StyleProp<TextStyle>;
-  wrapperStyle?: StyleProp<TextStyle>;
 }
 
 export default class SearchBar extends React.Component<
@@ -76,21 +74,21 @@ export default class SearchBar extends React.Component<
     }
   };
 
-  onFocus = () => {
+  onFocus = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
     this.setState({
       focus: true,
     });
     if (this.props.onFocus) {
-      this.props.onFocus();
+      this.props.onFocus(e);
     }
   };
 
-  onBlur = () => {
+  onBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
     this.setState({
       focus: false,
     });
     if (this.props.onBlur) {
-      this.props.onBlur();
+      this.props.onBlur(e);
     }
   };
   render() {
@@ -103,7 +101,6 @@ export default class SearchBar extends React.Component<
       onChange,
       disabled,
       style,
-      wrapperStyle,
       ...restProps
     } = this.props;
 
@@ -121,7 +118,7 @@ export default class SearchBar extends React.Component<
     return (
       <WithTheme styles={styles} themeStyles={SearchBarStyles}>
         {_styles => (
-          <View style={[_styles.wrapper,wrapperStyle]}>
+          <View style={_styles.wrapper}>
             <View style={_styles.inputWrapper}>
               <TextInput
                 clearButtonMode="always"

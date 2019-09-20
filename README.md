@@ -1,3 +1,5 @@
+[English](./README.md) | 简体中文
+
 <p align="center">
   <a href="http://rn.mobile.ant.design">
     <img width="320" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png">
@@ -43,47 +45,14 @@ yarn add @sishuguojixuefu/antd-mobile-rn
 react-native link @ant-design/icons-react-native
 ```
 
-### 按需加载
-
-```sh
-$ yarn add babel-plugin-import -D
-```
-
-**babel.config.js:**
-
-```js
-plugins: [
-  ['import', { libraryName: '@sishuguojixuefu/antd-mobile-rn' }],
-],
-```
-
-### 使用 Modal、Toast
-
-如果需要使用 `Modal` 以及 `Toast` 还需要在 App 的入口处加上 `Provider`:
-
-```js
-import React, { Component } from 'react';
-import { Button, Provider, Toast } from '@sishuguojixuefu/antd-mobile-rn';
-
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <Provider>
-        <Button onPress={() => Toast.info('This is a toast tips')}>
-          Start
-        </Button>
-      </Provider>
-    );
-  }
-}
-```
-
-[介绍](https://github.com/ant-design/ant-design-mobile-rn/blob/master/docs/react/introduce.zh-CN.md#%E5%AE%89%E8%A3%85)
+[介绍](docs/react/introduce.zh-CN.md#安装)
 
 ## 链接
 
 - [首页](http://rn.mobile.ant.design)
+- [开发文档](development.zh-CN.md)
 - [底层 React 模块](http://github.com/react-component)
+- [官方 Demo 集合](https://github.com/ant-design/antd-mobile-samples)
 
 ## 欢迎贡献
 
