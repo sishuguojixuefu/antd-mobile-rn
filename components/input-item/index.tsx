@@ -1,5 +1,5 @@
 import React from 'react';
-import { GestureResponderEvent, Platform, StyleSheet, Text, TextInputProperties, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { GestureResponderEvent, Platform, StyleSheet, Text, TextInputProperties, TouchableOpacity, TouchableWithoutFeedback, View, ViewStyle } from 'react-native';
 import { Omit } from 'utility-types';
 import Icon from '../icon';
 import { WithTheme, WithThemeStyles } from '../style';
@@ -22,6 +22,7 @@ export interface InputItemProps
   onExtraClick?: (event: GestureResponderEvent) => void;
   onErrorClick?: (event: GestureResponderEvent) => void;
   disabled?: boolean;
+  itemStyle?: ViewStyle;
 }
 
 interface InputItemState {
@@ -141,7 +142,7 @@ export default class InputItem extends React.Component<
       ...restProps
     } = this.props;
     const { focus } = this.state;
-    const { value, defaultValue, style } = restProps;
+    const { value, defaultValue, style, itemStyle } = restProps;
     let valueProps: any;
     if ('value' in this.props) {
       valueProps = {
@@ -199,7 +200,7 @@ export default class InputItem extends React.Component<
           }
           const disabledStyle = disabled ? s.inputDisabled : {};
           return (
-            <View style={[s.container, containerStyle]}>
+            <View style={[s.container, itemStyle, containerStyle]}>
               {children ? (
                 typeof children === 'string' ? (
                   <Text style={[s.text, textStyle]}>{children}</Text>
