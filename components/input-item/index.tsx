@@ -217,7 +217,7 @@ export default class InputItem extends React.Component<
                 {...valueProps}
                 style={[
                   {
-                    height: !android ? theme.list_item_height_sm : theme.list_item_height,
+                    height: theme.list_item_height,
                   },
                   s.input,
                   error ? s.inputErrorColor : null,

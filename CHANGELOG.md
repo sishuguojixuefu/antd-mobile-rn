@@ -13,3 +13,4 @@
   - 增加 `itemStyle?: ViewStyle` 属性
   - textAlign 增加 'right' 选项
   - InputItem clear 增加 textAlign 值不等于 left 才显示的条件
+  - InputItem ios 下的默认高度设置为 44
