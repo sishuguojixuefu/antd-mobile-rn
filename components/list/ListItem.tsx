@@ -16,6 +16,7 @@ export interface ListItemProps
   style?: StyleProp<ViewStyle>;
   last?: boolean;
   LineStyle?: any;
+  extraStyle?: any;
 }
 
 export interface BriefProps
@@ -75,6 +76,7 @@ export default class Item extends React.Component<ListItemProps, any> {
       align,
       last,
       LineStyle,
+      extraStyle,
       ...restProps
     } = this.props;
 
@@ -153,7 +155,7 @@ export default class Item extends React.Component<ListItemProps, any> {
           if (extra || extra === 0) {
             extraDom = (
               <View style={[itemStyles.column]}>
-                <Text style={[itemStyles.Extra]} {...numberOfLines}>
+                <Text style={[itemStyles.Extra, extraStyle]} {...numberOfLines}>
                   {extra}
                 </Text>
               </View>
@@ -167,7 +169,7 @@ export default class Item extends React.Component<ListItemProps, any> {
                     tempExtraDom.push(
                       <Text
                         {...numberOfLines}
-                        style={[itemStyles.Extra]}
+                        style={[itemStyles.Extra, extraStyle]}
                         key={`${index}-children`}
                       >
                         {el}
