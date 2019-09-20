@@ -6,3 +6,5 @@
   - 增加 extraStyle 属性
   - Extra 默认字体大小调为 16
   - 148 行，修复 extra 为 0 时不显示的问题
+- [Icon](./components/icon/index.tsx)
+  - icon size 添加 x3s 选项

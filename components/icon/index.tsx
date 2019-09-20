@@ -4,7 +4,7 @@ import { TextProps } from 'react-native';
 import { WithTheme } from '../style';
 export type IconNames = OutlineGlyphMapType;
 export interface IconProps extends TextProps {
-  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number;
+  size?: 'x3s' | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number;
   color?: string;
   name: IconNames;
 }
@@ -17,6 +17,7 @@ export default class Icon extends React.Component<IconProps, any> {
   render() {
     const { size, color, name, ...rest } = this.props;
     const sizeMap: { [key: string]: number } = {
+      x3s: 12,
       xxs: 15,
       xs: 18,
       sm: 21,
