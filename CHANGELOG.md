@@ -19,3 +19,5 @@
 - [Grid](./components/grid/index.tsx)
   - 添加 iconStyle 用于自定义图标尺寸
   - 添加 textStyle 用于自定义文字尺寸
+- [Picker](./components/picker/index.tsx)
+  - add Keyboard.dismiss() to onVisibleChange
