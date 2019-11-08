@@ -11,6 +11,7 @@ export default function prompt(
   type = 'default',
   defaultValue = '',
   placeholders = ['', ''],
+  maxLength?: number,
   onBackHandler?: CallbackOnBackHandler,
 ) {
   if (!callbackOrActions) {
@@ -32,6 +33,7 @@ export default function prompt(
         }
       }}
       placeholders={placeholders}
+      maxLength={maxLength}
       onBackHandler={onBackHandler}
     />,
   );

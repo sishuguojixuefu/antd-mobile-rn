@@ -17,6 +17,7 @@ export interface PropmptContainerProps extends WithThemeStyles<PromptStyle> {
   actions: CallbackOrActions<TextStyle>;
   onAnimationEnd?: (visible: boolean) => void;
   placeholders?: string[];
+  maxLength?: number;
   onBackHandler?: CallbackOnBackHandler;
 }
 
@@ -86,6 +87,7 @@ export default class PropmptContainer extends React.Component<
       type,
       actions,
       placeholders,
+      maxLength
     } = this.props;
     const { text, password } = this.state;
     const getArgs = function (func: (...args: any[]) => void) {
@@ -191,6 +193,7 @@ export default class PropmptContainer extends React.Component<
                         onChangeText={value => {
                           this.onChangeText('password', value);
                         }}
+                        maxLength={maxLength}
                         value={this.state.password}
                         style={styles.input}
                         underlineColorAndroid="transparent"

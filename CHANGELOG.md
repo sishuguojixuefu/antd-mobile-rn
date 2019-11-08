@@ -20,3 +20,5 @@
   - 添加 textStyle 用于自定义文字尺寸
 - [Picker](./components/picker/index.tsx)
   - add Keyboard.dismiss() to onVisibleChange
+- [Modal.prompt](./components/modal/prompt.tsx)
+  - add maxLength param to `Modal.prompt` function
