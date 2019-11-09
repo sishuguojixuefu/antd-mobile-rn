@@ -178,6 +178,7 @@ export default class PropmptContainer extends React.Component<
                         onChangeText={value => {
                           this.onChangeText('text', value);
                         }}
+                        maxLength={maxLength}
                         value={this.state.text}
                         style={styles.input}
                         underlineColorAndroid="transparent"
