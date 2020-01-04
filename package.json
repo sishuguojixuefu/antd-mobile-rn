@@ -20,7 +20,8 @@
     "url": "https://github.com/sishuguojixuefu/antd-mobile-rn"
   },
   "files": [
-    "lib"
+    "lib",
+    "images"
   ],
   "license": "MIT",
   "main": "lib/index.js",
