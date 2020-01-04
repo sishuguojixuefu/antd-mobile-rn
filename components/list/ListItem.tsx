@@ -4,6 +4,7 @@ import Icon from '../icon';
 import { WithTheme, WithThemeStyles } from '../style';
 import { BriefProps as BriefBasePropsType, ListItemPropsType } from './PropsType';
 import ListStyles, { ListStyle } from './style/index';
+import RNImage from '@sishuguojixuefu/react-native-image'
 
 export interface ListItemProps
   extends ListItemPropsType,
@@ -191,7 +192,7 @@ export default class Item extends React.Component<ListItemProps, any> {
           const arrEnum = {
             // horizontal: <Icon name="right" style={itemStyles.Arrow} />,
             // @ts-ignore
-            horizontal: <Image source={require('../../images/right.png')} style={[itemStyles.Arrow,]} width={20}/>,
+            horizontal: <RNImage source={require('../../images/right.png')} style={itemStyles.Arrow} width={16}/>,
             down: <Icon name="down" style={itemStyles.ArrowV} />,
             up: <Icon name="up" style={itemStyles.ArrowV} />,
           };

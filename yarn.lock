@@ -173,6 +173,11 @@
   resolved "https://registry.yarnpkg.com/@bang88/react-native-ultimate-listview/-/react-native-ultimate-listview-3.3.0.tgz#b09199105b942aee4ae05729e4bd229353217ab6"
   integrity sha512-qRH8YV1Hi0dJpSQ9VCoWMVFuvxwZ4F5N73fqYMjSh0tGlG/p95WlaM/WVg9PFMphP5Sv5FO0p+vbBKWrbwdE0g==
 
+"@sishuguojixuefu/react-native-image@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@sishuguojixuefu/react-native-image/-/react-native-image-0.2.0.tgz#cf1d2567fc141e713aea073e0c1943de55a951ab"
+  integrity sha512-APzBHJVUD989PgXs4UrwOml8M4V6AiGTRhfgVgSzpnGM8583cOnCSzR35iD32jDlyiWLuiS5cN0Ozsn3ajW4WA==
+
 "@types/prop-types@*":
   version "15.5.6"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
