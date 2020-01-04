@@ -192,7 +192,7 @@ export default class Item extends React.Component<ListItemProps, any> {
           const arrEnum = {
             // horizontal: <Icon name="right" style={itemStyles.Arrow} />,
             // @ts-ignore
-            horizontal: <RNImage source={require('../../images/right.png')} style={itemStyles.Arrow} width={16}/>,
+            horizontal: <RNImage source={require('../../images/right.png')} style={itemStyles.Arrow} height={18}/>,
             down: <Icon name="down" style={itemStyles.ArrowV} />,
             up: <Icon name="up" style={itemStyles.ArrowV} />,
           };
