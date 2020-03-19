@@ -22,3 +22,5 @@
   - add Keyboard.dismiss() to onVisibleChange
 - [Modal.prompt](./components/modal/prompt.tsx)
   - add maxLength param to `Modal.prompt` function
+- [popover](./components/popover/index.tsx)
+  - add listenLongPress 用于设置长按才弹出气泡
