@@ -12,6 +12,7 @@ export interface PopoverProps extends WithThemeStyles<PopoverStyle> {
   disabled?: boolean;
   renderOverlayComponent?: (node: React.ReactNode) => React.ReactNode;
   placement?: Placement | 'auto';
+  listenLongPress?: boolean;
 }
 export interface PopoverItemProps {
   value: any;
@@ -76,9 +77,9 @@ export default class Popover extends React.PureComponent<PopoverProps, any> {
     }
     return <ScrollView>{items}</ScrollView>;
   };
+  onPressListenEmpty = () => {}
   render() {
-    const { children, disabled, triggerStyle, styles, placement } = this.props;
-
+    const { children, disabled, triggerStyle, styles, placement, listenLongPress } = this.props;
     return (
       <WithTheme themeStyles={PopoverStyles} styles={styles}>
         {s => (
@@ -93,7 +94,8 @@ export default class Popover extends React.PureComponent<PopoverProps, any> {
               <View>
                 <TouchableOpacity
                   ref={setPopoverAnchor}
-                  onPress={openPopover}
+                  onPress={listenLongPress ? this.onPressListenEmpty : openPopover}
+                  onLongPress={listenLongPress ? openPopover : this.onPressListenEmpty}
                   style={triggerStyle}
                   disabled={disabled}
                   activeOpacity={0.75}
