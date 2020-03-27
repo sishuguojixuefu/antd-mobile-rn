@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
+    "@react-native-community/cameraroll": "^1.5.2",
     "@types/prop-types": "^15.5.7",
     "@types/react": "~16.7.13",
     "@types/react-native": "^0.57.15",
