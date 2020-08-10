@@ -138,7 +138,7 @@ export default class SearchBar extends React.Component<
                 onBlur={this.onBlur}
               />
             </View>
-            {!!searchIcon ? searchIcon : <Icon name="search" style={_styles.search} /> }
+            {!!searchIcon ? React.cloneElement(<View>{searchIcon}</View>, { style: _styles.search }) : <Icon name="search" style={_styles.search} /> }
             {_showCancelButton && (
               <View style={_styles.cancelTextContainer}>
                 <Text style={_styles.cancelText} onPress={this.onCancel}>
