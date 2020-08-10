@@ -14,6 +14,7 @@ export interface SearchBarProps
   onSubmitEditing?: (event: { nativeEvent: { text: string } }) => void;
   style?: StyleProp<TextStyle>;
   wrapperStyle?: StyleProp<TextStyle>;
+  searchIcon?: React.ReactNode;
 }
 
 export default class SearchBar extends React.Component<
@@ -103,6 +104,7 @@ export default class SearchBar extends React.Component<
       disabled,
       style,
       wrapperStyle,
+      searchIcon,
       ...restProps
     } = this.props;
 
@@ -136,7 +138,7 @@ export default class SearchBar extends React.Component<
                 onBlur={this.onBlur}
               />
             </View>
-            <Icon name="search" style={_styles.search} />
+            {!!searchIcon ? searchIcon : <Icon name="search" style={_styles.search} /> }
             {_showCancelButton && (
               <View style={_styles.cancelTextContainer}>
                 <Text style={_styles.cancelText} onPress={this.onCancel}>
