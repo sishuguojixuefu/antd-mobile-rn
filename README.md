@@ -28,13 +28,13 @@ Ant Design 移动端设计规范。`@sishuguojixuefu/antd-mobile-rn` 是 Ant Des
 ## 安装 & 使用
 
 ```bash
-npm install @sishuguojixuefu/antd-mobile-rn --save
+npm install @sishuguojixuefu/antd-mobile-rn @react-native-community/cameraroll --save
 ```
 
 or
 
 ```bash
-yarn add @sishuguojixuefu/antd-mobile-rn
+yarn add @sishuguojixuefu/antd-mobile-rn @react-native-community/cameraroll @ant-design/icons-react-native
 ```
 
 ### 链接字体图标
