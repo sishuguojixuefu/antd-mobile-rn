@@ -11,6 +11,7 @@ export interface ToastProps extends WithThemeStyles<ToastStyle> {
   mask?: boolean;
   type?: string;
   onAnimationEnd?: () => void;
+  loadingIcon: null | JSX.Element
 }
 
 export default class ToastContainer extends React.Component<ToastProps, any> {
@@ -95,7 +96,7 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
   }
 
   render() {
-    const { type = '', content, mask } = this.props;
+    const { type = '', content, mask ,loadingIcon} = this.props;
     return (
       <WithTheme styles={this.props.styles} themeStyles={ToastStyles}>
         {styles => {
@@ -119,7 +120,9 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
             >
               <View style={[styles.innerContainer]}>
                 <Animated.View style={{ transform: [{ rotate: spin }] }}>
-                  <Icon name="loading" size={30} color="#5E83FF" />
+                  {
+                    loadingIcon || <Icon name="loading" size={30} color="#5E83FF" />
+                  }
                 </Animated.View>
               </View>
             </View>;

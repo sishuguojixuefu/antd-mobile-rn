@@ -19,6 +19,12 @@ Ant Design 移动端设计规范。`@sishuguojixuefu/antd-mobile-rn` 是 Ant Des
 - 基于 React Native 的多平台支持。
 - 使用 TypeScript 开发，提供类型定义文件。
 
+### 独特性
+
+对于 loading 进行了修改, 并且添加了  api : 
+`Toast.setLoadingIcon(<Image />)`  
+可以自定义的 loading 图标
+
 ## 演示
 
 <img width="250" src="https://user-images.githubusercontent.com/1698185/27175806-f0a8a7f0-51f2-11e7-85fb-4b7ea9f89e5b.png" />
