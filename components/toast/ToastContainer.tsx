@@ -51,7 +51,6 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
     }
     if (type === 'loading') {
       this.spin();
-      return;
     }
 
     const animArr = [
