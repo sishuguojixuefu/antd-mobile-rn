@@ -74,6 +74,7 @@ export default class AlertContainer extends React.Component<
       <Modal
         transparent
         title={title}
+        maskClosable
         visible={this.state.visible}
         footer={footer}
         onAnimationEnd={onAnimationEnd}
