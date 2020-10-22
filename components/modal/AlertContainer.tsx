@@ -9,12 +9,11 @@ export interface AlertContainerProps {
   actions: Action<TextStyle>[];
   onAnimationEnd?: (visible: boolean) => void;
   onBackHandler?: CallbackOnBackHandler;
+  onMaskClose?: () => any
 }
 
-export default class AlertContainer extends React.Component<
-  AlertContainerProps,
-  any
-  > {
+export default class AlertContainer extends React.Component<AlertContainerProps,
+  any> {
   constructor(props: AlertContainerProps) {
     super(props);
     this.state = {
@@ -34,7 +33,7 @@ export default class AlertContainer extends React.Component<
     const { onBackHandler } = this.props;
     if (typeof onBackHandler === 'function') {
       const flag = onBackHandler();
-      if(flag){
+      if (flag) {
         this.onClose();
       }
       return flag;
@@ -49,6 +48,9 @@ export default class AlertContainer extends React.Component<
   onClose = () => {
     this.setState({
       visible: false,
+    }, () => {
+      const { onMaskClose } = this.props;
+      onMaskClose && onMaskClose();
     });
   };
 
@@ -56,7 +58,8 @@ export default class AlertContainer extends React.Component<
     const { title, actions, content, onAnimationEnd } = this.props;
     const footer = actions.map(button => {
       // tslint:disable-next-line:only-arrow-functions
-      const orginPress = button.onPress || function () { };
+      const orginPress = button.onPress || function() {
+      };
       button.onPress = () => {
         const res = orginPress();
         if (res && res.then) {
@@ -80,6 +83,7 @@ export default class AlertContainer extends React.Component<
         footer={footer}
         onAnimationEnd={onAnimationEnd}
         bodyStyle={{
+          paddingVertical: 5,
           marginTop: 8,
           alignItems: 'center',
         }}

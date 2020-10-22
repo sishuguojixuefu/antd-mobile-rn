@@ -8,6 +8,7 @@ export default function a(
   content: React.ReactNode,
   actions: Action[] = [{ text: '确定' }],
   onBackHandler?: CallbackOnBackHandler,
+  onMaskClose?: () => any// 蒙层关闭时的回调
 ) {
   const key = Portal.add(
     <AlertContainer
@@ -19,6 +20,7 @@ export default function a(
           Portal.remove(key);
         }
       }}
+      onMaskClose={onMaskClose}
       onBackHandler={onBackHandler}
     />,
   );
