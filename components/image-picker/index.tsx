@@ -99,11 +99,11 @@ export default class ImagePicker extends React.Component<ImagePickerProps, any> 
             <View key={index} style={[styles.item, styles.size]}>
               <TouchableOpacity onPress={() => this.onImageClick(index)} activeOpacity={0.6}>
                 <Image source={{ uri: item.url }} style={[styles.size, styles.image]} />
+                {item.videoUrl && <Image source={require("../../images/play.png")} style={styles.play} />}
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.removeImage(index)} style={styles.closeWrap} activeOpacity={0.6}>
                 <Text style={styles.closeText}>×</Text>
               </TouchableOpacity>
-              {item.videoUrl && <Image source={require("../../images/play.png")} style={styles.play} />}
             </View>
           ))
 

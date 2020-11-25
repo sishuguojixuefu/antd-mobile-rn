@@ -78,8 +78,8 @@ export default () =>
       position: "absolute",
       top: "50%",
       left: "50%",
-      width: 40,
-      height: 40,
-      transform: [{ translateX: -20 }, { translateY: -20 }],
+      width: 30,
+      height: 30,
+      transform: [{ translateX: -15 }, { translateY: -15 }],
     },
   })
