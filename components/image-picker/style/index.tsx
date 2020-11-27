@@ -69,10 +69,10 @@ export default () =>
       borderColor: varibles.border_color_base,
     },
     plusText: {
-      fontSize: 64,
+      fontSize: 12,
       backgroundColor: "transparent",
-      fontWeight: "100",
       color: varibles.color_text_caption,
+      marginTop: 8,
     },
     play: {
       position: "absolute",

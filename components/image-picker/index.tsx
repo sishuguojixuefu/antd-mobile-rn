@@ -129,7 +129,14 @@ export default class ImagePicker extends React.Component<ImagePickerProps, any> 
                     ref={(conponent: any) => (this.plusWrap = conponent)}
                     style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
                   >
-                    <Text style={[styles.plusText]}>+</Text>
+                    <Image
+                      style={{ width: 30, height: 30 }}
+                      resizeMode="contain"
+                      source={require("../../images/camera.png")}
+                    />
+                    <Text style={[styles.plusText]}>
+                      添加图片{cameraPickerProps?.assetType === "All" ? "/视频" : ""}
+                    </Text>
                   </View>
                 </TouchableWithoutFeedback>
               )}
