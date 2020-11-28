@@ -2,6 +2,13 @@ import React from 'react';
 import Portal from '../portal';
 import ToastContainer from './ToastContainer';
 
+let loadingIcon: null | JSX.Element = null;
+
+
+const setLoadingIcon = (icon: JSX.Element) => {
+  loadingIcon = icon;
+}
+
 function notice(
   content: string,
   type: string,
@@ -16,6 +23,7 @@ function notice(
       onClose={onClose}
       type={type}
       mask={mask}
+      loadingIcon={loadingIcon}
       onAnimationEnd={() => Portal.remove(key)}
     />,
   );
@@ -25,8 +33,10 @@ function notice(
 export default {
   SHORT: 3,
   LONG: 8,
+  setLoadingIcon,
   show(content: string, duration?: number, mask?: boolean) {
-    return notice(content, 'info', duration, () => {}, mask);
+    return notice(content, 'info', duration, () => {
+    }, mask);
   },
   info(
     content: string,

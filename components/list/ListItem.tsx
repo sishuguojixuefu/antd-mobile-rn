@@ -1,16 +1,19 @@
 import React from 'react';
-import { Image, StyleProp, StyleSheet, Text, TouchableHighlight, View, ViewStyle } from 'react-native';
+import { GestureResponderEvent, Image, StyleProp, StyleSheet, Text, TouchableHighlight, View, ViewStyle } from 'react-native';
 import Icon from '../icon';
 import { WithTheme, WithThemeStyles } from '../style';
 import { BriefProps as BriefBasePropsType, ListItemPropsType } from './PropsType';
 import ListStyles, { ListStyle } from './style/index';
+import RNImage from '@sishuguojixuefu/react-native-image'
 
 export interface ListItemProps
   extends ListItemPropsType,
     WithThemeStyles<ListStyle> {
-  onPress?: () => void;
-  onPressIn?: () => void;
-  onPressOut?: () => void;
+  onPress?: (event: GestureResponderEvent) => void;
+  onPressIn?: (event: GestureResponderEvent) => void;
+  onPressOut?: (event: GestureResponderEvent) => void;
+  delayLongPress?: number;
+  onLongPress?: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
   last?: boolean;
   LineStyle?: any;
@@ -50,6 +53,8 @@ export default class Item extends React.Component<ListItemProps, any> {
   static defaultProps: Partial<ListItemProps> = {
     multipleLine: false,
     wrap: false,
+    delayLongPress: 500,
+    onLongPress: () => {},
     last: false,
   };
   static Brief = Brief;
@@ -65,6 +70,8 @@ export default class Item extends React.Component<ListItemProps, any> {
       onPress,
       onPressIn,
       onPressOut,
+      onLongPress,
+      delayLongPress,
       wrap,
       disabled,
       align,
@@ -146,7 +153,7 @@ export default class Item extends React.Component<ListItemProps, any> {
           }
 
           let extraDom;
-          if (extra) {
+          if (extra || extra === 0) {
             extraDom = (
               <View style={[itemStyles.column]}>
                 <Text style={[itemStyles.Extra, extraStyle]} {...numberOfLines}>
@@ -183,7 +190,9 @@ export default class Item extends React.Component<ListItemProps, any> {
           }
 
           const arrEnum = {
-            horizontal: <Icon name="right" style={itemStyles.Arrow} />,
+            // horizontal: <Icon name="right" style={itemStyles.Arrow} />,
+            // @ts-ignore
+            horizontal: <RNImage source={require('../../images/right.png')} style={itemStyles.Arrow} height={18}/>,
             down: <Icon name="down" style={itemStyles.ArrowV} />,
             up: <Icon name="up" style={itemStyles.ArrowV} />,
           };
@@ -230,6 +239,8 @@ export default class Item extends React.Component<ListItemProps, any> {
               }
               onPressIn={onPressIn}
               onPressOut={onPressOut}
+              onLongPress={onLongPress}
+              delayLongPress={delayLongPress}
             >
               {itemView}
             </TouchableHighlight>

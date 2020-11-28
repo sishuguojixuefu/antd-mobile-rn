@@ -11,13 +11,15 @@ export interface ToastProps extends WithThemeStyles<ToastStyle> {
   mask?: boolean;
   type?: string;
   onAnimationEnd?: () => void;
+  loadingIcon: null | JSX.Element
 }
 
 export default class ToastContainer extends React.Component<ToastProps, any> {
   static defaultProps = {
     duration: 3,
     mask: true,
-    onClose() {},
+    onClose() {
+    },
   };
 
   anim: Animated.CompositeAnimation | null;
@@ -72,10 +74,11 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
       this.anim.stop();
       this.anim = null;
     }
+
   }
 
   render() {
-    const { type = '', content, mask } = this.props;
+    const { type = '', content, mask ,loadingIcon} = this.props;
     return (
       <WithTheme styles={this.props.styles} themeStyles={ToastStyles}>
         {styles => {
@@ -89,6 +92,18 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
 
           let iconDom: React.ReactElement<any> | null = null;
           if (type === 'loading') {
+            if(loadingIcon){
+              return <View
+                style={[styles.container]}
+                pointerEvents={mask ? undefined : 'box-none'}
+              >
+                <View style={[styles.innerContainer]}>
+                  <Animated.View style={{ opacity: this.state.fadeAnim }}>
+                    {loadingIcon}
+                  </Animated.View>
+                </View>
+              </View>;
+            }
             iconDom = (
               <ActivityIndicator
                 animating

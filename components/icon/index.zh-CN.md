@@ -20,7 +20,7 @@ react-native link @ant-design/icons-react-native
 使用方式：
 
 ```jsx
-<Icon name="account-book" size="md" color="red" />;
+<Icon name="account-book" size="md" color="red" />
 ```
 
 > 注： 默认现在Icon使用了 `ant-design-icons` 里面的`outline` 图标

@@ -2,6 +2,7 @@
 import treeFilter from 'array-tree-filter';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Keyboard } from 'react-native'
 import { WithTheme, WithThemeStyles } from '../style';
 import { getComponentLocale } from '../_util/getLocale';
 import RMCCascader from './cascader';
@@ -131,6 +132,7 @@ export default class Picker extends React.Component<PickerProps, any> {
   };
 
   onVisibleChange = (visible: boolean) => {
+    visible && Keyboard.dismiss()
     this.setScrollValue(undefined);
     if (this.props.onVisibleChange) {
       this.props.onVisibleChange(visible);

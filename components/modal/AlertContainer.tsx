@@ -1,19 +1,19 @@
 import React, { isValidElement } from 'react';
-import { ScrollView, Text, TextStyle } from 'react-native';
+import { BackHandler, ScrollView, Text, TextStyle } from 'react-native';
 import Modal from './Modal';
-import { Action } from './PropsType';
+import { Action, CallbackOnBackHandler } from './PropsType';
 
 export interface AlertContainerProps {
   title: React.ReactNode;
   content: React.ReactNode;
   actions: Action<TextStyle>[];
   onAnimationEnd?: (visible: boolean) => void;
+  onBackHandler?: CallbackOnBackHandler;
+  onMaskClose?: () => any
 }
 
-export default class AlertContainer extends React.Component<
-  AlertContainerProps,
-  any
-> {
+export default class AlertContainer extends React.Component<AlertContainerProps,
+  any> {
   constructor(props: AlertContainerProps) {
     super(props);
     this.state = {
@@ -21,9 +21,36 @@ export default class AlertContainer extends React.Component<
     };
   }
 
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackAndroid);
+  }
+
+  onBackAndroid = () => {
+    const { onBackHandler } = this.props;
+    if (typeof onBackHandler === 'function') {
+      const flag = onBackHandler();
+      if (flag) {
+        this.onClose();
+      }
+      return flag;
+    }
+    if (this.state.visible) {
+      this.onClose();
+      return true;
+    }
+    return false;
+  };
+
   onClose = () => {
     this.setState({
       visible: false,
+    }, () => {
+      const { onMaskClose } = this.props;
+      onMaskClose && onMaskClose();
     });
   };
 
@@ -31,7 +58,8 @@ export default class AlertContainer extends React.Component<
     const { title, actions, content, onAnimationEnd } = this.props;
     const footer = actions.map(button => {
       // tslint:disable-next-line:only-arrow-functions
-      const orginPress = button.onPress || function() {};
+      const orginPress = button.onPress || function() {
+      };
       button.onPress = () => {
         const res = orginPress();
         if (res && res.then) {
@@ -49,10 +77,13 @@ export default class AlertContainer extends React.Component<
       <Modal
         transparent
         title={title}
+        maskClosable
+        onClose={this.onClose}
         visible={this.state.visible}
         footer={footer}
         onAnimationEnd={onAnimationEnd}
         bodyStyle={{
+          paddingVertical: 5,
           marginTop: 8,
           alignItems: 'center',
         }}

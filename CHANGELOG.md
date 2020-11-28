@@ -1,17 +1,26 @@
-- [InputItem](./components/input-item/index.tsx)
-  - 增加 `itemStyle?: ViewStyle` 属性
-  - textAlign 增加 'right' 选项
-  - 把 InputItem clear icon 设置为 x3s
-  - InputItem clear 增加 textAlign 值不等于 right 才显示的条件
-  - InputItem ios 下的默认高度设置为 44
 - [List](./components/list/index.tsx)
-- 增加了 noBorder 属性
+  - 增加了 noBorder 属性
 - [List.Item](./components/list/ListItem.tsx)
   - 增加 `last?: boolean` 属性
   - 增加 LineStyle 属性
   - 增加 extraStyle 属性
   - Extra 默认字体大小调为 16
+  - 148 行，修复 extra 为 0 时不显示的问题
 - [Icon](./components/icon/index.tsx)
   - icon size 添加 x3s 选项
+- [InputItem](./components/input-item/index.tsx)
+  - 把 InputItem clear icon 设置为 x3s
+  - 增加 `itemStyle?: ViewStyle` 属性
+  - textAlign 增加 'right' 选项
+  - InputItem ios 下的默认高度设置为 44
 - [SearchBar](./components/search-bar/index.tsx)
   - 增加 `wrapperStyle?: StyleProp<TextStyle>;` 属性
+- [Grid](./components/grid/index.tsx)
+  - 添加 iconStyle 用于自定义图标尺寸
+  - 添加 textStyle 用于自定义文字尺寸
+- [Picker](./components/picker/index.tsx)
+  - add Keyboard.dismiss() to onVisibleChange
+- [Modal.prompt](./components/modal/prompt.tsx)
+  - add maxLength param to `Modal.prompt` function
+- [popover](./components/popover/index.tsx)
+  - add listenLongPress 用于设置长按才弹出气泡

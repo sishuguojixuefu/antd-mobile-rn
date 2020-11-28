@@ -13,7 +13,7 @@ export interface ToastStyle {
 }
 
 export default (theme: Theme) =>
-  StyleSheet.create < ToastStyle > ({
+  StyleSheet.create<ToastStyle>({
     container: {
       position: 'absolute',
       top: 0,

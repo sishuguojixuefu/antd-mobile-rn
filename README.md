@@ -19,6 +19,12 @@ Ant Design 移动端设计规范。`@sishuguojixuefu/antd-mobile-rn` 是 Ant Des
 - 基于 React Native 的多平台支持。
 - 使用 TypeScript 开发，提供类型定义文件。
 
+### 独特性
+
+对于 loading 进行了修改, 并且添加了  api : 
+`Toast.setLoadingIcon(<Image />)`  
+可以自定义的 loading 图标
+
 ## 演示
 
 <img width="250" src="https://user-images.githubusercontent.com/1698185/27175806-f0a8a7f0-51f2-11e7-85fb-4b7ea9f89e5b.png" />
@@ -28,13 +34,13 @@ Ant Design 移动端设计规范。`@sishuguojixuefu/antd-mobile-rn` 是 Ant Des
 ## 安装 & 使用
 
 ```bash
-npm install @sishuguojixuefu/antd-mobile-rn --save
+npm install @sishuguojixuefu/antd-mobile-rn @react-native-community/cameraroll --save
 ```
 
 or
 
 ```bash
-yarn add @sishuguojixuefu/antd-mobile-rn
+yarn add @sishuguojixuefu/antd-mobile-rn @react-native-community/cameraroll @ant-design/icons-react-native
 ```
 
 ### 链接字体图标
@@ -43,47 +49,14 @@ yarn add @sishuguojixuefu/antd-mobile-rn
 react-native link @ant-design/icons-react-native
 ```
 
-### 按需加载
-
-```sh
-$ yarn add babel-plugin-import -D
-```
-
-**babel.config.js:**
-
-```js
-plugins: [
-  ['import', { libraryName: '@sishuguojixuefu/antd-mobile-rn' }],
-],
-```
-
-### 使用 Modal、Toast
-
-如果需要使用 `Modal` 以及 `Toast` 还需要在 App 的入口处加上 `Provider`:
-
-```js
-import React, { Component } from 'react';
-import { Button, Provider, Toast } from '@sishuguojixuefu/antd-mobile-rn';
-
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <Provider>
-        <Button onPress={() => Toast.info('This is a toast tips')}>
-          Start
-        </Button>
-      </Provider>
-    );
-  }
-}
-```
-
-[介绍](https://github.com/ant-design/ant-design-mobile-rn/blob/master/docs/react/introduce.zh-CN.md#%E5%AE%89%E8%A3%85)
+[介绍](docs/react/introduce.zh-CN.md#安装)
 
 ## 链接
 
 - [首页](http://rn.mobile.ant.design)
+- [开发文档](development.zh-CN.md)
 - [底层 React 模块](http://github.com/react-component)
+- [官方 Demo 集合](https://github.com/ant-design/antd-mobile-samples)
 
 ## 欢迎贡献
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import Portal from '../portal';
 import AlertContainer from './AlertContainer';
-import { Action } from './PropsType';
+import { Action, CallbackOnBackHandler } from './PropsType';
 
 export default function a(
   title: React.ReactNode,
   content: React.ReactNode,
   actions: Action[] = [{ text: '确定' }],
+  onBackHandler?: CallbackOnBackHandler,
+  onMaskClose?: () => any// 蒙层关闭时的回调
 ) {
   const key = Portal.add(
     <AlertContainer
@@ -18,6 +20,8 @@ export default function a(
           Portal.remove(key);
         }
       }}
+      onMaskClose={onMaskClose}
+      onBackHandler={onBackHandler}
     />,
   );
 }
