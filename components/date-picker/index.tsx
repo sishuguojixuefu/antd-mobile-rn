@@ -43,7 +43,7 @@ export default class DatePicker extends React.Component<DatePickerProps> {
         maxDate={this.props.maxDate}
         defaultDate={value}
         onValueChange={this.props.onValueChange}
-        itemStyle={itemStyle}
+        itemStyle={{...itemStyle, fontSize:14}}
       />
     );
 
