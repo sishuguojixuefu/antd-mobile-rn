@@ -44,6 +44,7 @@ export default class DatePicker extends React.Component<DatePickerProps> {
         defaultDate={defaultDate}
         date={value}
         onValueChange={this.props.onValueChange}
+        // @ts-ignore
         itemStyle={{...itemStyle, fontSize:14}}
       />
     );
