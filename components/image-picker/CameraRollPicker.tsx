@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GetPhotosParamType, Platform, StyleSheet, View, ViewStyle } from 'react-native';
+import { GetPhotosParamType, Platform, StyleSheet, View, ViewStyle, PermissionsAndroid } from 'react-native';
 import CameraRoll from "@react-native-community/cameraroll"
 import ListView from '../list-view';
 import ImageItem from './ImageItem';
@@ -77,7 +77,21 @@ class CameraRollPicker extends Component<
     });
   }
 
-  onFetch = async (_ = 1, startFetch: any, abortFetch: () => void) => {
+  getPermission = async () => {
+    try {
+      const checkResult = await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE)
+      if (!checkResult) {
+        const getResult = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE)
+        return getResult === PermissionsAndroid.RESULTS.GRANTED
+      }
+      return true
+    } catch (e) {
+      console.log('获取权限失败', e)
+      return false
+    }
+  };
+
+  handleFetch = async (_ = 1, startFetch: any, abortFetch: () => void) => {
     try {
       const {
         assetType,
@@ -115,6 +129,15 @@ class CameraRollPicker extends Component<
       abortFetch(); // manually stop the refresh or pagination if it encounters network error
     }
   };
+
+  onFetch = async (_ = 1, startFetch: any, abortFetch: () => void) => {
+    const permissionResult = await this.getPermission()
+    if(!permissionResult){
+      return
+    }
+    await this.handleFetch(_, startFetch, abortFetch)
+  }
+
   render() {
     const { imageMargin, backgroundColor, imagesPerRow } = this.props;
 
