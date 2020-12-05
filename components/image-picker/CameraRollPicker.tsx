@@ -78,6 +78,9 @@ class CameraRollPicker extends Component<
   }
 
   getPermission = async () => {
+    if (Platform.OS === 'ios') {
+      return true
+    }
     try {
       const checkResult = await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE)
       if (!checkResult) {
