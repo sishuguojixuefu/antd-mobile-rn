@@ -1,23 +1,24 @@
-import React from 'react';
-import { TextStyle } from 'react-native';
-import Portal from '../portal';
-import PromptContainer from './PromptContainer';
-import { CallbackOnBackHandler, CallbackOrActions } from './PropsType';
+import React from "react"
+import { TextStyle } from "react-native"
+import Portal from "../portal"
+import PromptContainer from "./PromptContainer"
+import { CallbackOnBackHandler, CallbackOrActions } from "./PropsType"
 
 export default function prompt(
   title: React.ReactNode,
   message: React.ReactNode,
   callbackOrActions: CallbackOrActions<TextStyle>,
-  type = 'default',
-  defaultValue = '',
-  placeholders = ['', ''],
+  type = "default",
+  defaultValue = "",
+  placeholders = ["", ""],
   maxLength?: number,
   onBackHandler?: CallbackOnBackHandler,
+  multiline?: boolean
 ) {
   if (!callbackOrActions) {
     // tslint:disable-next-line:no-console
-    console.error('Must specify callbackOrActions');
-    return;
+    console.error("Must specify callbackOrActions")
+    return
   }
 
   const key = Portal.add(
@@ -29,12 +30,13 @@ export default function prompt(
       defaultValue={defaultValue}
       onAnimationEnd={(visible: boolean) => {
         if (!visible) {
-          Portal.remove(key);
+          Portal.remove(key)
         }
       }}
       placeholders={placeholders}
       maxLength={maxLength}
       onBackHandler={onBackHandler}
-    />,
-  );
+      multiline={multiline}
+    />
+  )
 }
