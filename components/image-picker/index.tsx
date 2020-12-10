@@ -135,7 +135,12 @@ export default class ImagePicker extends React.Component<ImagePickerProps, any> 
                       source={require("../../images/camera.png")}
                     />
                     <Text style={[styles.plusText]}>
-                      添加图片{cameraPickerProps && cameraPickerProps.assetType === "All" ? "/视频" : ""}
+                      添加
+                      {cameraPickerProps && cameraPickerProps.assetType === "Videos"
+                        ? "视频"
+                        : cameraPickerProps && cameraPickerProps.assetType === "Photos"
+                        ? "图片"
+                        : "图片/视频"}
                     </Text>
                   </View>
                 </TouchableWithoutFeedback>
