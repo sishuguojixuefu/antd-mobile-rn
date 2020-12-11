@@ -51,7 +51,7 @@ export default class RCModal extends React.Component<IModalPropTypes, any> {
   static defaultProps = {
     wrapStyle: styles.wrap,
     maskStyle: styles.mask,
-    animationType: 'slide-up',
+    animationType: 'none',
     animateAppear: false,
     animationDuration: 300,
     visible: false,
