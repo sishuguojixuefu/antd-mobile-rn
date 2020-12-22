@@ -8,6 +8,8 @@ import ImagePickerStyles, { ImagePickerStyle } from "./style/index"
 
 export interface ImagePickerProps extends ImagePickerPropTypes, WithThemeStyles<ImagePickerStyle>, ImageRollTexts {
   cameraPickerProps?: CameraRollPickerProps
+  assetType?: "Photos" | "Videos" | "All"
+  renderAddBtn?: () => React.ReactNode
 }
 
 export default class ImagePicker extends React.Component<ImagePickerProps, any> {
@@ -90,8 +92,23 @@ export default class ImagePicker extends React.Component<ImagePickerProps, any> 
     }
   }
 
+  getTxt = () => {
+    const { cameraPickerProps, assetType } = this.props
+    let sourceType = assetType || (cameraPickerProps && cameraPickerProps.assetType)
+    switch (sourceType) {
+      case "Videos":
+        return "添加视频"
+      case "Photos":
+        return "添加图片"
+      case "All":
+        return "添加图片/视频"
+      default:
+        return ""
+    }
+  }
+
   render() {
-    const { files = [], selectable, cameraPickerProps } = this.props
+    const { files = [], selectable, cameraPickerProps, assetType, renderAddBtn } = this.props
     return (
       <WithTheme styles={this.props.styles} themeStyles={ImagePickerStyles}>
         {(styles) => {
@@ -129,19 +146,19 @@ export default class ImagePicker extends React.Component<ImagePickerProps, any> 
                     ref={(conponent: any) => (this.plusWrap = conponent)}
                     style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
                   >
-                    <Image
-                      style={{ width: 30, height: 30 }}
-                      resizeMode="contain"
-                      source={require("../../images/camera.png")}
-                    />
-                    <Text style={[styles.plusText]}>
-                      添加
-                      {cameraPickerProps && cameraPickerProps.assetType === "Videos"
-                        ? "视频"
-                        : cameraPickerProps && cameraPickerProps.assetType === "Photos"
-                        ? "图片"
-                        : "图片/视频"}
-                    </Text>
+                    {renderAddBtn && renderAddBtn()}
+                    {!renderAddBtn && (
+                      <Image
+                        style={{ width: 30, height: 30 }}
+                        resizeMode="contain"
+                        source={
+                          assetType === "Videos"
+                            ? require("../../images/video.png")
+                            : require("../../images/camera.png")
+                        }
+                      />
+                    )}
+                    {!renderAddBtn && <Text style={[styles.plusText]}>{this.getTxt()}</Text>}
                   </View>
                 </TouchableWithoutFeedback>
               )}
