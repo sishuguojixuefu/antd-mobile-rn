@@ -1,35 +1,36 @@
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { Theme } from '../../style';
+import { StyleSheet, TextStyle, ViewStyle } from "react-native"
+import { Theme } from "../../style"
 
 export interface ToastStyle {
-  container: ViewStyle;
-  innerContainer: ViewStyle;
-  innerWrap: ViewStyle;
-  iconToast: ViewStyle;
-  textToast: ViewStyle;
-  content: TextStyle;
-  image: TextStyle;
-  centering: ViewStyle;
+  container: ViewStyle
+  innerContainer: ViewStyle
+  innerWrap: ViewStyle
+  iconToast: ViewStyle
+  textToast: ViewStyle
+  content: TextStyle
+  image: TextStyle
+  centering: ViewStyle
 }
 
 export default (theme: Theme) =>
   StyleSheet.create<ToastStyle>({
     container: {
-      position: 'absolute',
+      position: "absolute",
       top: 0,
       left: 0,
       bottom: 0,
       right: 0,
-      backgroundColor: 'transparent',
-      justifyContent: 'center',
-      alignItems: 'center',
+      backgroundColor: "transparent",
+      justifyContent: "center",
+      alignItems: "center",
       zIndex: theme.toast_zindex,
     },
     innerContainer: {
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
     },
     innerWrap: {
-      alignItems: 'center',
+      marginHorizontal: 40,
+      alignItems: "center",
       backgroundColor: theme.toast_fill,
       minWidth: 100,
     },
@@ -45,13 +46,14 @@ export default (theme: Theme) =>
     content: {
       color: theme.color_text_base_inverse,
       fontSize: theme.font_size_subhead,
+      lineHeight: 22,
     },
     image: {
       marginBottom: theme.v_spacing_xs,
     },
     centering: {
-      alignItems: 'center',
-      justifyContent: 'center',
+      alignItems: "center",
+      justifyContent: "center",
       padding: theme.v_spacing_md,
     },
-  });
+  })
